@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('../../views/templates/head')-%>
+
+    <body>
+        <div id="layoutDefault">
+            <div id="layoutDefault_content">
+                <main>
+                    <!-- Navbar-->
+                    <%- include('../../views/templates/user/nav_log')-%>
+                        <div class="">
+                        <div class="container-xl px-4 mt-4 ">
+                            <%- include('../../views/templates/user/nav_user')-%>
+                            <hr class="mt-0 mb-4">
+                            <div class="card mb-4">
+                                <div class="card-header">Historial de Articulos</div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive table-billing-history">
+                                        <table class="table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th class="border-gray-200" scope="col">Articulo ID</th>
+                                                    <th class="border-gray-200" scope="col">Fecha de creación</th>
+                                                    <th class="border-gray-200" scope="col">Titulo</th>
+                                                    <th class="border-gray-200" scope="col">Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>#39201</td>
+                                                    <td>06/15/2021</td>
+                                                    <td>Lorem ipsum dolor sit amet</td>
+                                                    <td><span class="badge bg-light text-dark">Pendiente</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#38594</td>
+                                                    <td>05/15/2021</td>
+                                                    <td>Duis aute irure dolor</td>
+                                                    <td><span class="badge bg-success">Validado</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#38223</td>
+                                                    <td>04/15/2021</td>
+                                                    <td>Excepteur sint occaecat cupidatat</td>
+                                                    <td><span class="badge bg-success">Validado</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#38125</td>
+                                                    <td>03/15/2021</td>
+                                                    <td>Duis aute irure dolor</td>
+                                                    <td><span class="badge bg-success">Validado</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <%- include('../../views/templates/footer')-%>
+    </body>
+
+</html>

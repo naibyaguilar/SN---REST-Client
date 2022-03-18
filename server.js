@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 
 app.use(routes.auth)
 app.use(routes.home)
+app.use(routes.user)
 
 
 app.use(handdle.errorHandler)
