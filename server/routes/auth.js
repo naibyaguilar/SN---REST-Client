@@ -1,14 +1,16 @@
 
 const router = require("express").Router()
-const handdle = require("../handlers")
+const handler = require("../handlers")
 
 
 
-router.get("/login", handdle.renderLogin)
+router.get("/login", handler.renderLogin)
 
-router.get("/login", handdle.login)
+router.get("/login", handler.login)
 
-router.get("/register", handdle.renderRegister)
+router.get("/register", handler.renderRegister)
+
+router.get("/password", handler.renderPassword)
 
 
 module.exports = router

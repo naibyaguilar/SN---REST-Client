@@ -2,7 +2,8 @@
 
 module.exports = {
     ...require("./auth"),
-    ...require("./home")
+    ...require("./home"),
+    ...require("./user")
 
 }
 
