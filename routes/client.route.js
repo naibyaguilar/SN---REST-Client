@@ -3,9 +3,15 @@ var router = express.Router();
 
 const IndexController = require('../controllers/index.controller');
 const AuthController = require('../controllers/auth.controller');
+const AccountController = require('../controllers/account.controller');
 
-/*#region Auth*/
+/*#region Index*/
 router.get('/', IndexController.RenderIndex);
+/*#endregion*/
+
+/*#region User*/
+router.get("/user", AccountController.RenderProfile)
+router.get("/publication", AccountController.RenderPublication)
 /*#endregion*/
 
 /*#region Auth*/

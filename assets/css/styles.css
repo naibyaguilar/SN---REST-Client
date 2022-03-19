@@ -3199,9 +3199,9 @@ textarea.form-control-lg {
   border-color: #EF042D;
 }
 .btn-primary:hover {
-  color: #EF042D;
-  background-color: #FFFFFF;
-  border-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #EF042D;
+  border-color: #EF042D;
 }
 
 .btn-primary-nav {
@@ -5791,7 +5791,7 @@ textarea.form-control-lg {
   padding-left: 0;
 }
 .navbar-nav .dropdown-menu {
-  position: static;
+  position: absolute;
 }
 
 .navbar-text {
@@ -20173,6 +20173,12 @@ section {
   font-size: 0.9rem;
 }
 
+.page-header-ui-compact .page-header-ui-content{
+  padding:0
+}
+.page-header-ui-compact .page-header-ui-content .page-header-ui-title{
+  font-size:1rem
+}
 .page-header-ui-dark {
   color: #fff;
   background-color: #212832;
@@ -20248,4 +20254,13 @@ section {
   .divider-right {
     border-right: 0.0625rem solid #e0e5ec;
   }
+}
+.hidingForms * {
+  display:none;
+}
+
+
+.profile-container{
+  position: relative;
+  padding-top: 5rem;
 }
