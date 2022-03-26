@@ -1,17 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../../views/templates/head')-%>
+<%- include('../../views/templates/head')-%>
 
 
-<body>
-    <div id="layoutDefault">
-        <div id="layoutDefault_content">
-            <main>
-                
-            </main>
-        </div>
-    </div>
-</body>
+    <body>
+        <section class="bg-light py-3" style="background-image: url('assets/image/pattern-shapes.png');">
+            <div class="container px-2">
+                <div class="row gx-5 mb-4">
+                    <div class="col-md-5 text-center">
+                        <div class="col-lg-5 ">
+                            <img src="../../assets/image/register.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card post-preview post-preview-featured lift mb-3 overflow-hidden ">
+                            <h5 class="card-header card-title text-center">Registro</h5>
+                            <div class="card-body">
+                                <form method="POST" action="/post">
+                                    <div class="form-group row mb-4">
+                                        <input class="form-control py-3" id="inputName" type="text"
+                                            placeholder="Titulo de la noticia" name="title">
+                                    </div>
+                                    <div class="form-group row mb-4">
+                                        <input class="form-control py-3" id="inputImg" type="text"
+                                            placeholder="Imagen de la noticia" name="img">
+                                    </div>
+                                    <textarea id="w3review" name="body" rows="4" cols="50">
+                                        Aqui va el cuerpo de la noticia
+                                    </textarea>
+                                            <div class="row gx-3 mb-3">
+                                                <div class="text-center">
+                                                    <button class="btn btn-primary mt-3"
+                                                        type="submit">Subir noticia</button>
+                                                </div>
+                                            </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container px-5">
+                    <div class="row gx-5">
+                        <%for( var i=0; i<news.length; i++) {%>
+                            <div class="col-md-6 col-xl-4 mb-5">
+                                <a class="card post-preview lift h-100" href="/post/<%=news[i]._id %>">
+                                    <img class="card-img-top"
+                                        src="<%=news[i].img %>" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%=news[i].title %></h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="post-preview-meta">
+                                            <div class="post-preview-meta-details">
+                                                <div class="post-preview-meta-details-name"><%=news[i].autor %></div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </a>
+                                <a href="/post/delete/<%=news[i]._id %>">Eliminar</a>
+                            </div>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <%- include('../../views/templates/need-validation')-%>
+        <script>
+
+            document.getElementById("inputTypeUser").onclick = function () {
+                var ddlTypeUser = document.getElementById("inputTypeUser");
+                var divinputUrlAcredit = document.getElementById("inputUrlAcredit");
+                if (ddlTypeUser.value == '2') {
+                    divinputUrlAcredit.required = true;
+                    divinputUrlAcredit.style.display = 'block';
+
+                } else {
+                    divinputUrlAcredit.required = false;
+                    divinputUrlAcredit.style.display = 'none';
+                }
+            }
+
+        </script>
 
 </html>

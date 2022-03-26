@@ -1,5 +1,9 @@
+const NewsSchema = require('../models/news');
+
 async function RenderIndex(req, res){
-    res.status(200).render("../views/index");
+    const news = await NewsSchema.find();
+    console.log(news);
+    res.status(200).render("../views/index", {news});
 }
 
 async function RenderNew(req, res){
