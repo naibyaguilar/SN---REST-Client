@@ -1,11 +1,9 @@
+const NewsSchema = require('../models/news');
+
 async function RenderIndex(req, res){
-    if(req.cookies["id"]){
-        res.status(200).render("../views/index");
-    }else{
-        res.status(200).render("../views/auth/login", {
-            message: ''
-        })
-    }
+    const news = await NewsSchema.find();
+    console.log(news);
+    res.status(200).render("../views/index", {news});
 }
 
 async function RenderNew(req, res){
