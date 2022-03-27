@@ -21,4 +21,7 @@ router.get('/login', AuthController.RenderLogin);
 router.post('/login', AuthController.Login);
 /*#endregion*/
 
+router.get('/create', IndexController.RenderCreateNew);
+
+
 module.exports = router
