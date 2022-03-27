@@ -20,10 +20,7 @@
                                 <div class="col-lg-10 col-xl-8">
                                     <div class="single-post">
                                         <!-- Intro -->
-                                        <h1>Boots on the Ground, Inclusive Thought Provoking Ideas</h1>
-                                        <p>Empower communities and energize engaging ideas; scale and impact
-                                            do-gooders while disruptring industries. Venture philanthropy benefits
-                                            corporations and people by moving the needle.</p>
+                                        <h1><%=post.title %></h1>
                                         <!-- Meta details -->
                                         <div class="d-flex align-items-center justify-content-between mb-auto">
                                             <div class="single-post-meta me-4">
@@ -129,8 +126,8 @@
                                                     </g>
                                                 </svg>
                                                 <div class="single-post-meta-details">
-                                                    <div class="single-post-meta-details-name">Mario Luna</div>
-                                                    <div class="single-post-meta-details-date">Feb 5 · 6 min read</div>
+                                                    <div class="single-post-meta-details-name"><%=post.autor %></div>
+                                                    <div class="single-post-meta-details-date"><%=post.date %></div>
                                                 </div>
                                             </div>
                                             <div class="single-post-meta-links">
@@ -175,52 +172,11 @@
                                         </div>
                                         <!-- Image -->
                                         <img class="img-fluid mb-2 rounded"
-                                            src="https://source.unsplash.com/vZJdYl5JVXY/990x540">
+                                            src="<%=post.img %>">
                                         <!-- Content Text-->
                                         <div class="small text-gray-500 text-center">Photo Credit: Unsplash</div>
                                         <div class="single-post-text my-5">
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit similique
-                                                distinctio quidem blanditiis architecto ullam a itaque quisquam nihil!
-                                                Unde
-                                                ducimus deleniti exercitationem minima, molestiae ab saepe libero.
-                                                Doloribus, a?</p>
-                                            <p>Magnam amet labore exercitationem maxime consectetur molestias quas quia
-                                                dicta, praesentium minus illum quis fuga, fugiat velit voluptate sed
-                                                nostrum
-                                                ipsam atque.</p>
-                                            <p>Quaerat voluptas natus velit deleniti reprehenderit vero ad eos ab
-                                                reiciendis. Libero dignissimos temporibus ipsam sint dolores voluptate
-                                                consequatur debitis tempora doloremque.</p>
-                                            <h4>Creating Something New</h4>
-                                            <p>Laborum placeat quas accusantium vitae perferendis dolores possimus
-                                                tempora,
-                                                qui consectetur hic ullam autem. Enim, rerum obcaecati numquam quaerat
-                                                necessitatibus voluptatem? Repellat!</p>
-                                            <p>Quasi, quos quaerat? Sint at odit possimus ullam saepe suscipit officiis
-                                                nobis eaque, laudantium ut earum tempore repellendus mollitia odio nam!
-                                                Unde?</p>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi explicabo
-                                                unde
-                                                perferendis reprehenderit ullam nobis? Laborum amet voluptatem sunt
-                                                natus?
-                                                Tempore commodi corporis accusamus laudantium assumenda blanditiis aut
-                                                nobis
-                                                culpa.</p>
-                                            <h4>It's time to build your new project</h4>
-                                            <p>Laborum placeat quas accusantium vitae perferendis dolores possimus
-                                                tempora,
-                                                qui consectetur hic ullam autem. Enim, rerum obcaecati numquam quaerat
-                                                necessitatibus voluptatem? Repellat!</p>
-                                            <p>Quasi, quos quaerat? Sint at odit possimus ullam saepe suscipit officiis
-                                                nobis eaque, laudantium ut earum tempore repellendus mollitia odio nam!
-                                                Unde?</p>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi explicabo
-                                                unde
-                                                perferendis reprehenderit ullam nobis? Laborum amet voluptatem sunt
-                                                natus?
-                                                Tempore commodi corporis accusamus laudantium assumenda blanditiis aut
-                                                nobis
-                                                culpa.</p>
+                                            <%=post.body %>
                                             <hr class="my-5">
                                         </div>
                                     </div>
