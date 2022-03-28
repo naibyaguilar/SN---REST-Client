@@ -16459,8 +16459,8 @@ body {
 }
 
 .bg-gradient-primary-to-secondary {
-  background-color: #0061f2 !important;
-  background-image: linear-gradient(135deg, #0061f2 0%, rgba(105, 0, 199, 0.8) 100%) !important;
+  background-color: #e81500 !important;
+  background-image: linear-gradient(180deg, rgba(232, 21, 0, 0.92) 0%, rgba(217, 50, 50, 0.74) 100%) !important;
 }
 
 .bg-transparent-light {
@@ -18405,6 +18405,25 @@ body {
   background-color: rgba(33, 40, 50, 0.1);
   border-color: transparent;
 }
+
+.btn-transparent-red {
+  color: rgba(255, 255, 255, 1);
+  background-color: transparent;
+  border-color: transparent;
+  color: rgba(255, 255, 255, 1) !important;
+}
+.btn-transparent-red:hover {
+  color: rgba(247, 247, 247, 1);
+  background-color: rgba(33, 40, 50, 0.1);
+  border-color: transparent;
+}
+.topnav + .btn-transparent-red {
+  color: currentColor;
+  background-color: transparent;
+  border-color: transparent;
+  color: rgba(33, 40, 50, 0.5) !important;
+}
+
 .btn-check:focus + .btn-transparent-dark, .btn-transparent-dark:focus {
   color: rgba(33, 40, 50, 0.5);
   background-color: rgba(33, 40, 50, 0.1);
@@ -19564,12 +19583,12 @@ body {
   }
 
   .dropdown-lg .dropdown-menu {
-    min-width: 30rem;
+    min-width: 10rem;
     overflow: hidden;
   }
 
   .dropdown-xl .dropdown-menu {
-    min-width: 45rem;
+    min-width: 5rem;
   }
 }
 .navbar .dropdown-menu {

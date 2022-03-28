@@ -1,17 +1,17 @@
 const NewsSchema = require('../models/news');
+const userSchema = require('../models/users');
 
 async function RenderIndex(req, res){
-    const news = await NewsSchema.find();
-    console.log(news);
-    res.status(200).render("../views/index", {news});
+    const news = await NewsSchema.find().populate('user');
+    const id = req.cookies.id
+    const user = await userSchema.findById(id)
+    
+    res.status(200).render("../views/index", {
+        news:news,
+        user: user
+    });
 }
 
-async function RenderNew(req, res){
-    res.status(200).render("../views/publication/show");
-}
 
-async function RenderCreateNew(req, res){
-    res.status(200).render("../views/publication/create");
-}
 
-module.exports = { RenderIndex, RenderNew, RenderCreateNew }
+module.exports = { RenderIndex }

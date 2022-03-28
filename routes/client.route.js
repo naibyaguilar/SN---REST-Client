@@ -24,6 +24,8 @@ router.get('/recover', AuthController.RenderRecoverPassword);
 router.post('/recover', AuthController.RecoverPassword);
 router.get('/recover/(:id)', AuthController.RenderSetNewPassword);
 router.post('/recover/set/(:id)', AuthController.SetNewPassword);
+router.get('/logout', AuthController.Logout)
+
 /*#endregion*/
 
 /*#region News*/
@@ -33,7 +35,6 @@ router.get('/post/(:id)', NewsController.GetPostById);
 router.get('/post/delete/(:id)', NewsController.DeletePost);
 /*#endregion*/
 
-router.get('/create', IndexController.RenderCreateNew);
 
 
 module.exports = router
