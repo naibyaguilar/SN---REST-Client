@@ -3,86 +3,152 @@
 
 <%- include('../../views/templates/head')-%>
 
-
     <body>
-        <section class="bg-light py-3" style="background-image: url('assets/image/pattern-shapes.png');">
-            <div class="container px-2">
-                <div class="row gx-5 mb-4">
-                    <div class="col-md-5 text-center">
-                        <div class="col-lg-5 ">
-                            <img src="../../assets/image/register.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="card post-preview post-preview-featured lift mb-3 overflow-hidden ">
-                            <h5 class="card-header card-title text-center">Registro</h5>
-                            <div class="card-body">
-                                <form method="POST" action="/post">
-                                    <div class="form-group row mb-4">
-                                        <input class="form-control py-3" id="inputName" type="text"
-                                            placeholder="Titulo de la noticia" name="title">
-                                    </div>
-                                    <div class="form-group row mb-4">
-                                        <input class="form-control py-3" id="inputImg" type="text"
-                                            placeholder="Imagen de la noticia" name="img">
-                                    </div>
-                                    <textarea id="w3review" name="body" rows="4" cols="50">
-                                        Aqui va el cuerpo de la noticia
-                                    </textarea>
-                                            <div class="row gx-3 mb-3">
-                                                <div class="text-center">
-                                                    <button class="btn btn-primary mt-3"
-                                                        type="submit">Subir noticia</button>
-                                                </div>
-                                            </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container px-5">
-                    <div class="row gx-5">
-                        <%for( var i=0; i<news.length; i++) {%>
-                            <div class="col-md-6 col-xl-4 mb-5">
-                                <a class="card post-preview lift h-100" href="/post/<%=news[i]._id %>">
-                                    <img class="card-img-top"
-                                        src="<%=news[i].img %>" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><%=news[i].title %></h5>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="post-preview-meta">
-                                            <div class="post-preview-meta-details">
-                                                <div class="post-preview-meta-details-name"><%=news[i].autor %></div>
+        <div id="layoutDefault">
+            <div id="layoutDefault_content">
+                <main>
+                    <!-- Navbar-->
+                    <%- include('../../views/templates/user/nav_log')-%>
+                        <!--class="page-header-ui page-header-ui-dark bg-img-cover overlay overlay-600"-->
+                        <div class="">
+                            <header class="page-header page-header-light bg-gradient-primary-to-secondary pb-10">
+                                <div class="container-xl px-4">
+                                    <div class="page-header-content pt-4">
+                                        <div class="row align-items-center justify-content-between">
+                                            <div class="col-auto mt-4">
+                                                <h1 class="page-header-title text-white">
+                                                    <div class="page-header-icon"><svg width="16" height="20"
+                                                            viewBox="0 0 16 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M10 0H2C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0ZM12 16H4V14H12V16ZM12 12H4V10H12V12ZM9 7V1.5L14.5 7H9Z"
+                                                                fill="white" />
+                                                        </svg>
+                                                    </div>
+                                                    Redacta un nuevo artículo
+                                                </h1>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
-                                </a>
-                                <a href="/post/delete/<%=news[i]._id %>">Eliminar</a>
+                                </div>
+                            </header>
+                            <!-- Main page content-->
+                            <div class="container-xl px-4 mt-n10">
+                                <!-- Wizard card example with navigation-->
+                                <div class="card">
+                                    <div class="card-header border-bottom">
+                                        <!-- Wizard navigation-->
+                                        <div class="nav nav-pills nav-justified flex-column flex-xl-row nav-wizard"
+                                            id="cardTab" role="tablist">
+                                            <!-- Wizard navigation item 1-->
+                                            <a class="nav-item nav-link active" id="wizard1-tab" href="#wizard1"
+                                                data-bs-toggle="tab" role="tab" aria-controls="wizard1"
+                                                aria-selected="true">
+                                                <div class="wizard-step-icon">1</div>
+                                                <div class="wizard-step-text">
+                                                    <div class="wizard-step-text-name"> Información</div>
+                                                    <div class="wizard-step-text-details">Datos basicos y contenido del
+                                                        artículo</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tab-content" id="cardTabContent">
+                                            <form method="POST" action="/post">
+                                                <!-- Wizard tab pane item 1-->
+                                                <div class="tab-pane py-2 py-xl-5 fade active show" id="wizard1"
+                                                    role="tabpanel" aria-labelledby="wizard1-tab">
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-xxl-6 col-xl-8">
+                                                            <h3 class="text-primary">Primer Paso</h3>
+
+                                                            <div class="mb-3">
+                                                                <label class="small mb-1" for="inputTitle">Título del
+                                                                    Artículo</label>
+                                                                <input class="form-control" id="inputTitle" type="text"
+                                                                    placeholder="Titulo de la noticia" name="title">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="small mb-1"
+                                                                    for="inputBody">Contenido</label>
+                                                                <textarea class="form-control"
+                                                                    placeholder="Escribe el contenido del artículo"
+                                                                    id="floatingTextarea2" style="height: 100px"
+                                                                    name="body"></textarea>
+
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="small mb-1" for="inputImage">Imagen
+                                                                    Principal</label>
+                                                                <input class="form-control" id="inputPerfil" type="url"
+                                                                    name="img" placeholder="Link de la imagen">
+                                                            </div>
+                                                            <hr class="my-4">
+                                                            <h3 class="text-primary">Segundo Paso</h3>
+                                                            <h5 class="card-title mb-4">Escoge la clasificación y agrega
+                                                                sus referencias</h5>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="flextype" id="flexRadioDefault1" value="Política" checked>
+                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                    Política
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="flextype" id="flexRadioDefault2" value="Prensa y Medios">
+                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                    Prensa y Medios
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="flextype" id="flexRadioDefault2" value="Eventos">
+                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                    Eventos
+                                                                </label>
+                                                            </div>
+                                                            <div class="mt-4">
+                                                                <label class="small mb-1" for="inpuRef">Referencia del
+                                                                    artículo</label>
+                                                                <input class="form-control" id="inputRef" type="url"
+                                                                    name="ref" placeholder="Link de referencia">
+                                                            </div>
+                                                            <hr class="my-4">
+                                                            <div class="d-flex justify-content-between">
+                                                                <p>.</p>
+                                                                <button class="btn btn-primary" type="submit">Subir
+                                                                    noticia</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        <%}%>
-                    </div>
-                </div>
+                        </div>
+                </main>
             </div>
-        </section>
+        </div>
+
+        <%- include('../../views/templates/footer')-%>
+
     </body>
     <%- include('../../views/templates/need-validation')-%>
         <script>
+            $(document).ready(function () {
+                $('.btnNext').click(function () {
+                    $('.nav-tabs .active').parent().next('li').find('a').trigger('click');
+                });
 
-            document.getElementById("inputTypeUser").onclick = function () {
-                var ddlTypeUser = document.getElementById("inputTypeUser");
-                var divinputUrlAcredit = document.getElementById("inputUrlAcredit");
-                if (ddlTypeUser.value == '2') {
-                    divinputUrlAcredit.required = true;
-                    divinputUrlAcredit.style.display = 'block';
-
-                } else {
-                    divinputUrlAcredit.required = false;
-                    divinputUrlAcredit.style.display = 'none';
-                }
-            }
+                $('.btnPrevious').click(function () {
+                    $('.nav-tabs .active').parent().prev('li').find('a').trigger('click');
+                });
+            });
 
         </script>
 

@@ -2,6 +2,7 @@ const UsersSchema = require('../models/users');
 const bcrypt = require('bcrypt');
 
 async function RenderLogin(req, res) {
+    console.log("hello")
     return res.status(200).render('../views/auth/login', {
         title: 'Iniciar sesion',
         message: undefined
@@ -22,7 +23,7 @@ async function RenderRecoverPassword(req, res) {
     });
 }
 
-async function RenderSetNewPassword(req, res){
+async function RenderSetNewPassword(req, res) {
     return res.status(200).render('../views/auth/set-password', {
         title: 'Ingresa tu nueva contrasena',
         userId: req.params.id,
@@ -52,6 +53,7 @@ async function Login(req, res) {
             }
 
             const id = user._id;
+            
             res.cookie('id', id, cookieOptions);
 
             return res.status(200).redirect("/");
@@ -70,7 +72,7 @@ async function Login(req, res) {
 
 async function Register(req, res) {
     try {
-        if (!req.body.email || !req.body.password || !req.body.fullName || !req.body.academyProfile || !req.body.answer) {
+        if (!req.body.email || !req.body.password || !req.body.fullName || !req.body.answer || !req.body.phone  || !req.body.birthday || !req.body.role) {
             return res.status(400).render('../views/auth/register', {
                 title: 'Registrarse',
                 message: 'Porfavor llene todos los campos'
@@ -103,10 +105,10 @@ async function RecoverPassword(req, res) {
     try {
         const user = await UsersSchema.findOne({ email: req.body.email }).exec();
 
-        if(user.answer == req.body.answer){
+        if (user.answer == req.body.answer) {
             res.redirect('/recover/' + user._id);
         }
-        else{
+        else {
             return res.status(200).render('../views/auth/password', {
                 title: 'Recover password',
                 message: 'Ingresa lso datos correctamente'
@@ -118,10 +120,10 @@ async function RecoverPassword(req, res) {
     }
 }
 
-async function SetNewPassword(req, res){
+async function SetNewPassword(req, res) {
     try {
         bcrypt.hash(req.body.password, 10, async function (err, hash) {
-            await UsersSchema.findByIdAndUpdate(req.params.id, {password: hash});
+            await UsersSchema.findByIdAndUpdate(req.params.id, { password: hash });
 
             return res.status(200).redirect("/");
         });
@@ -131,4 +133,10 @@ async function SetNewPassword(req, res){
     }
 }
 
-module.exports = { RenderLogin, RenderRegister, RenderRecoverPassword, RenderSetNewPassword, Login, Register, RecoverPassword, SetNewPassword }
+async function Logout(req, res) {
+    res.clearCookie('id');
+    res.clearCookie('user');
+    return res.redirect('/');
+}
+
+module.exports = { RenderLogin, RenderRegister, RenderRecoverPassword, RenderSetNewPassword, Login, Register, RecoverPassword, SetNewPassword, Logout }

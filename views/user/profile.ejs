@@ -10,117 +10,137 @@
                 <main>
                     <!-- Navbar-->
                     <%- include('../../views/templates/user/nav_log')-%>
-                    <!--class="page-header-ui page-header-ui-dark bg-img-cover overlay overlay-600"-->
+                        <!--class="page-header-ui page-header-ui-dark bg-img-cover overlay overlay-600"-->
                         <div class="">
-                        <!-- Main page content-->
-                        <div class="container-xl px-4 mt-4 ">
-                            <!-- Account page navigation-->
-                            <%- include('../../views/templates/user/nav_user')-%>
+                            <!-- Main page content-->
+                            <div class="container-xl px-4 mt-4 ">
+                                <!-- Account page navigation-->
+                                <%- include('../../views/templates/elements/nav_user')-%>
 
-                            <hr class="mt-0 mb-4">
-                            <div class="row">
-                                <div class="col-xl-4">
-                                    <!-- Profile picture card-->
-                                    <div class="card mb-4 mb-xl-0">
-                                        <div class="card-header">Foto de perfil</div>
-                                        <div class="card-body text-center">
-                                            <!-- Profile picture image-->
-                                            <img class="img-account-profile rounded-circle mb-2"
-                                                src="../../assets/image/user-woman.svg" alt="">
-                                            <!-- Profile picture help block-->
-                                            <div class="small font-italic text-muted mb-4">JPG o PNG de tamaño no superior a más de 5 MB</div>
-                                            <!-- Profile picture upload button-->
-                                            <a class="btn btn-primary" href="#">Subir una nueva imagen </a>
+                                    <hr class="mt-0 mb-4">
+                                    <div class="row">
+                                        <div class="col-xl-4">
+                                            <!-- Profile picture card-->
+                                            <div class="card mb-4 mb-xl-0">
+                                                <div class="card-header">Foto de perfil</div>
+                                                <div class="card-body text-center">
+                                                    <!-- Profile picture image-->
+                                                    <img class="img-account-profile rounded-circle mb-2"
+                                                        src="../../assets/image/user-woman.svg" alt="">
+                                                    <!-- Profile picture help block-->
+                                                    <div class="small font-italic text-muted mb-4">JPG o PNG de tamaño
+                                                        no superior a más de 5 MB</div>
+                                                    <!-- Profile picture upload button-->
+                                                    <a class="btn btn-primary" href="#">Subir una nueva imagen </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-8">
+                                            <!-- Account details card-->
+                                            <div class="card mb-4">
+                                                <div class="card-header">Detalles de la cuenta</div>
+                                                <div class="card-body">
+                                                    <form>
+                                                        <!-- Form Group (fullname)-->
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1" for="inputName">Nombre
+                                                                Completo</label>
+                                                            <input class="form-control" id="inputName" type="name"
+                                                                placeholder="Introduzca su nombre de usuario"
+                                                                value="<%=user.fullName %>">
+                                                        </div>
+                                                        <!-- Form Row-->
+                                                        <div class="row gx-3 mb-3">
+                                                            <!-- Form Group (phone number)-->
+                                                            <div class="col-md-6">
+                                                                <label class="small mb-1" for="inputPhone">Phone
+                                                                    number</label>
+                                                                <input class="form-control" id="inputPhone" type="tel"
+                                                                    pattern="\d*"
+                                                                    placeholder="Introduzca su número de teléfono"
+                                                                    value="<%=user.phone %>">
+                                                            </div>
+                                                            <!-- Form Group (birthday)-->
+                                                            <div class="col-md-6">
+                                                                <label class="small mb-1" for="inputBirthday">Fecha de
+                                                                    nacimiento</label>
+
+
+                                                                <input class="form-control" name="birthday" type="date"
+                                                                    id="inputBirthday" value="<%=birthday %>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row gx-5 mb-3 type-user" required>
+                                                            <label class="small mb-1" for="inputTypeUser">Tipo de
+                                                                usuario</label>
+                                                            <div class="col-md-4">
+                                                                <select class="form-select " id="inputTypeUser">
+                                                                    <option value="1" <%=user.role=='1' ? 'selected'
+                                                                        : '' %>>Lector</option>
+                                                                    <option value="2" <%=user.role=='2' ? 'selected'
+                                                                        : '' %>>Autor/Escritor</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8  hidingForms">
+                                                                <label class="small mb-1" for="inputUrlAcredit">Link que
+                                                                    acreditación</label>
+                                                                <input class="form-control" id="inputUrlAcredit"
+                                                                    type="url"
+                                                                    placeholder="Ingresa el link que acredite"
+                                                                    value="<%=user.academyProfile %>">
+                                                            </div>
+
+                                                        </div>
+                                                        <hr class="my-3">
+                                                        <!-- Form Group (email address)-->
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1" for="inputEmailAddress">Email
+                                                                address</label>
+                                                            <input class="form-control" id="inputEmailAddress"
+                                                                type="email"
+                                                                placeholder="Introduzca su dirección de correo electrónico"
+                                                                value="<%=user.email %>">
+                                                        </div>
+                                                        <!-- Save changes button-->
+                                                        <a class="btn btn-primary" href="#">Guardar cambios</a>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                <div class="col-xl-8">
-                                    <!-- Account details card-->
                                     <div class="card mb-4">
-                                        <div class="card-header">Detalles de la cuenta</div>
+                                        <div class="card-header">Cambiar la contraseña</div>
                                         <div class="card-body">
                                             <form>
-                                                <!-- Form Group (fullname)-->
+                                                <!-- Form Group (current password)-->
                                                 <div class="mb-3">
-                                                    <label class="small mb-1" for="inputName">Nombre Completo</label>
-                                                    <input class="form-control" id="inputName" type="name"
-                                                        placeholder="Introduzca su nombre de usuario" value="name">
+                                                    <label class="small mb-1" for="currentPassword">Contraseña
+                                                        actual</label>
+                                                    <input class="form-control" id="currentPassword" type="password"
+                                                        placeholder="Introduzca la contraseña actual">
                                                 </div>
-                                                <!-- Form Row-->
-                                                <div class="row gx-3 mb-3">
-                                                    <!-- Form Group (phone number)-->
-                                                    <div class="col-md-6">
-                                                        <label class="small mb-1" for="inputPhone">Phone
-                                                            number</label>
-                                                        <input class="form-control" id="inputPhone" type="tel" pattern="\d*"
-                                                            placeholder="Introduzca su número de teléfono" value="5551234567">
-                                                    </div>
-                                                    <!-- Form Group (birthday)-->
-                                                    <div class="col-md-6">
-                                                        <label class="small mb-1" for="inputBirthday">Fecha de nacimiento</label>
-                                                        <input class="form-control" id="inputBirthday" type="date"
-                                                            name="birthday" placeholder="Introduce tu fecha de nacimiento"
-                                                            value="06/10/1988">
-                                                    </div>
-                                                </div>
-                                                <div class="row gx-5 mb-3 type-user" required>
-                                                    <label class="small mb-1" for="inputTypeUser">Tipo de usuario</label>
-                                                    <div class="col-md-4">
-                                                        <select class="form-select " id="inputTypeUser">
-                                                            <option value="1">Lector</option>
-                                                            <option value="2">Autor/Escritor</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-8  hidingForms">
-                                                        <label class="small mb-1" for="inputUrlAcredit">Link que acreditación</label>
-                                                        <input class="form-control" id="inputUrlAcredit" type="url"
-                                                            placeholder="Ingresa el link que acredite">
-                                                    </div>
-            
-                                                </div>
-                                                <hr class="my-3">
-                                                <!-- Form Group (email address)-->
+                                                <!-- Form Group (new password)-->
                                                 <div class="mb-3">
-                                                    <label class="small mb-1" for="inputEmailAddress">Email
-                                                        address</label>
-                                                    <input class="form-control" id="inputEmailAddress" type="email"
-                                                        placeholder="Introduzca su dirección de correo electrónico" value="name@example.com">
+                                                    <label class="small mb-1" for="newPassword">Nueva contraseña</label>
+                                                    <input class="form-control" id="newPassword" type="password"
+                                                        placeholder="Introduzca la nueva contraseña">
                                                 </div>
-                                                <!-- Save changes button-->
-                                                <a class="btn btn-primary" href="#">Guardar cambios</a>
+                                                <!-- Form Group (confirm password)-->
+                                                <div class="mb-3">
+                                                    <label class="small mb-1" for="confirmPassword">Confirmar
+                                                        contraseña</label>
+                                                    <input class="form-control" id="confirmPassword" type="password"
+                                                        placeholder="Confirmar nueva contraseña">
+                                                </div>
+                                                <button class="btn btn-primary" type="button">Guardar</button>
                                             </form>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="card mb-4">
-                                <div class="card-header">Cambiar la contraseña</div>
-                                <div class="card-body">
-                                    <form>
-                                        <!-- Form Group (current password)-->
-                                        <div class="mb-3">
-                                            <label class="small mb-1" for="currentPassword">Contraseña actual</label>
-                                            <input class="form-control" id="currentPassword" type="password" placeholder="Introduzca la contraseña actual">
-                                        </div>
-                                        <!-- Form Group (new password)-->
-                                        <div class="mb-3">
-                                            <label class="small mb-1" for="newPassword">Nueva contraseña</label>
-                                            <input class="form-control" id="newPassword" type="password" placeholder="Introduzca la nueva contraseña">
-                                        </div>
-                                        <!-- Form Group (confirm password)-->
-                                        <div class="mb-3">
-                                            <label class="small mb-1" for="confirmPassword">Confirmar contraseña</label>
-                                            <input class="form-control" id="confirmPassword" type="password" placeholder="Confirmar nueva contraseña">
-                                        </div>
-                                        <button class="btn btn-primary" type="button">Guardar</button>
-                                    </form>
-                                </div>
-                            </div>
 
-                           
+
+                            </div>
                         </div>
-                    </div>
                 </main>
             </div>
         </div>
@@ -129,7 +149,15 @@
     </body>
     <script>
 
+        $(document).ready(function () {
+            handleRole()
+        });
+
         document.getElementById("inputTypeUser").onclick = function () {
+            handleRole()
+        }
+
+        function handleRole() {
             var ddlTypeUser = document.getElementById("inputTypeUser");
             var divinputUrlAcredit = document.getElementById("inputUrlAcredit");
             if (ddlTypeUser.value == '2') {
@@ -141,7 +169,6 @@
                 divinputUrlAcredit.style.display = 'none';
             }
         }
-
     </script>
 
 </html>
