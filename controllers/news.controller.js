@@ -6,7 +6,7 @@ async function RenderNewPost(req, res) {
     if(!id) return res.redirect('/');
     const news = await NewsSchema.find();
     const user = await userSchema.findById(id)
-
+    if(user.role==1) return res.redirect('/user'); 
     return res.status(200).render('../views/publication/create', {
         title: 'Publicar nota',
         message: undefined,
@@ -19,7 +19,7 @@ async function NewPost(req, res) {
     const id = req.cookies.id;
     if(!id) return res.redirect('/');
     const user = await userSchema.findById(id);
-
+    
     let data = {
         title: req.body.title,
         body: req.body.body,
@@ -38,6 +38,7 @@ async function NewPost(req, res) {
 
 async function GetPostById(req, res) {
     const id = req.cookies.id
+    if(!id) return res.redirect('/');
     const user = await userSchema.findById(id)
 
     const post = await NewsSchema.findById(req.params.id).populate('user');

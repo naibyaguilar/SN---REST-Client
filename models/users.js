@@ -12,4 +12,5 @@ var UsersSchema = new Schema({
     role:Number
 });
 
+
 module.exports = mongoose.model('user', UsersSchema);

@@ -2,6 +2,7 @@ const UsersSchema = require('../models/users');
 const bcrypt = require('bcrypt');
 
 async function RenderLogin(req, res) {
+    console.log("hello")
     return res.status(200).render('../views/auth/login', {
         title: 'Iniciar sesion',
         message: undefined
@@ -71,7 +72,7 @@ async function Login(req, res) {
 
 async function Register(req, res) {
     try {
-        if (!req.body.email || !req.body.password || !req.body.fullName || !req.body.academyProfile || !req.body.answer || !req.body.phone  || !req.body.birthday || !req.body.role) {
+        if (!req.body.email || !req.body.password || !req.body.fullName || !req.body.answer || !req.body.phone  || !req.body.birthday || !req.body.role) {
             return res.status(400).render('../views/auth/register', {
                 title: 'Registrarse',
                 message: 'Porfavor llene todos los campos'
@@ -134,6 +135,7 @@ async function SetNewPassword(req, res) {
 
 async function Logout(req, res) {
     res.clearCookie('id');
+    res.clearCookie('user');
     return res.redirect('/');
 }
 

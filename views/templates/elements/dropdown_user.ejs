@@ -3,13 +3,13 @@
         href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false"><img class="img-fluid" src="../../assets/image/user-woman.svg"></a>
     <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
-        aria-labelledby="navbarDropdownUserImage">
-        <h6 class="dropdown-header d-flex align-items-center">
+        aria-labelledby="navbarDropdownUserImage"> 
+        <a class="dropdown-header d-flex align-items-center"  href="/detail/<%=user._id %>">
             <img class="dropdown-user-img" src="../../assets/image/user-woman.svg">
             <div class="dropdown-user-details">
                 <div class="dropdown-user-details-name"> <%=user.fullName %></div>
             </div>
-        </h6>
+        </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="/user">
             <div class="dropdown-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"

@@ -198,6 +198,8 @@ h6, .h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  word-break: break-all;
+  white-space: pre-line;
 }
 
 abbr[title],
@@ -278,11 +280,11 @@ sup {
 }
 
 a {
-  color: #0061f2;
+  color: currentColor;
   text-decoration: none;
 }
 a:hover {
-  color: #004ec2;
+  color: #e81500;
   text-decoration: underline;
 }
 
@@ -395,6 +397,9 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  word-break: break-all;
+  white-space: pre-line;
+
 }
 
 button,

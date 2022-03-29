@@ -8,11 +8,14 @@ const NewsController = require('../controllers/news.controller');
 
 /*#region Index*/
 router.get('/', IndexController.RenderIndex);
+router.get('/home/(:type)', IndexController.RenderIndexBytype);
+router.post('/home', IndexController.RenderIndexByTitle);
 /*#endregion*/
 
 /*#region User*/
-router.get("/user", AccountController.RenderProfile)
-router.get("/publication", AccountController.RenderPublication)
+router.get("/user", AccountController.RenderProfile);
+router.get("/publication", AccountController.RenderPublication);
+router.get("/detail/(:id)", AccountController.RenderDetail);
 /*#endregion*/
 
 /*#region Auth*/
